@@ -98,6 +98,9 @@ header > .icons > i {
 .info > .video__info > .titleAndMore {
   display: flex;
 }
+.info > .video__info > .titleAndMore > .video__title.clamp {
+  display: flex;
+}
 .info > .video__info > .titleAndMore > .video__title {
   /* 아래 속성은 webkit line clamp를 지정하는 속성들이다. */
   display: -webkit-box;
@@ -111,6 +114,14 @@ header > .icons > i {
 }
 .info > .video__info > .titleAndMore > .more__btn > .fa-caret-down {
   margin-bottom: 15px;
+  /* transform을 300ms 동안 ease-in-out으로 움직인다. */
+  /*? 근데 왜 여기에 지정해야 잘 동작하지?? transform과 같이 지정하면 처음에만 적용되고 다시 돌아올 때에는 적용되지 않는다. */
+  transition: transform 300ms ease-in-out;
+}
+.info > .video__info > .titleAndMore > .more__btn > .fa-caret-down.down {
+  margin-bottom: 15px;
+  /* .down 클래스를 가지고 있으면 transform 적용 */
+  transform: rotate(180deg);
 }
 .info > .video__info > .view__info {
   color: var(--grey-dark-color);
@@ -135,6 +146,11 @@ header > .icons > i {
 .action__btn > li > button > i {
   font-size: var(--font-large);
   padding: var(--padding) var(--padding);
+}
+.action__btn > li > button > i.clicked {
+  font-size: var(--font-large);
+  padding: var(--padding) var(--padding);
+  color: var(--blue-color);
 }
 .action__btn > li > span {
   font-size: var(--font-small);
@@ -176,6 +192,15 @@ header > .icons > i {
   /* text-transform을 uppercase로 하면 대문자가 된다. */
   text-transform: uppercase;
   color: var(--red-color);
+  cursor: pointer;
+}
+/* subscribe 버튼에 clicked 클래스가 있을 때, 폰트 색 --grey-dark-color-color 적용 */
+.ch__info > .ch__titleAndSubs__btn > .subs__btn.clicked {
+  background-color: var(--white-color);
+  border: 0;
+  /* text-transform을 uppercase로 하면 대문자가 된다. */
+  text-transform: uppercase;
+  color: var(--grey-dark-color-color);
   cursor: pointer;
 }
 
@@ -232,6 +257,7 @@ header > .icons > i {
   flex-direction: column;
 }
 
+/* 화면 width가 최소 768px 이상일 때, 적용*/
 @media screen and (min-width: 768px) {
   .infoAndUpNext {
     flex-direction: row;

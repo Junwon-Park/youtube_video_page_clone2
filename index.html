@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+    <!--! 여기에서 처럼 script 태그를 body 위에 쓰는 경우, defer를 지정하주지 않으면 dom에서 html 태그를 불러와도 아직 html을 읽지 못했기 때문에 null이라고 뜬다. -->
+    <script defer src="main.js"></script>
     <script
+      defer
       src="https://kit.fontawesome.com/5db9a19ce8.js"
       crossorigin="anonymous"
     ></script>
@@ -34,11 +36,7 @@
         autoplay: 페이지가 열리면(리디렉션 포함) 자동으로 비디오 재생
         controls: player에 비디오를 재생하고 멈추고 소리를 조절하는 등의 컨트롤러를 제공하는 속성
         -->
-      <video
-        autoplay
-        controls
-        src="/medias/temp_1641782256777.-21820293.mp4"
-      ></video>
+      <video controls src="/medias/temp_1641782256777.-21820293.mp4"></video>
     </section>
     <div class="infoAndUpNext">
       <!--video의 정보를 표시할 section 박스-->
@@ -56,7 +54,9 @@
               >해피 네카라 벗은 날 | 행복한 해피의 하루 | 광란의 뒹굴기 |
               무아지경 | 자유를 만끽하는 해피 | Our Happy is so Happy:)</span
             >
-            <button class="more__btn"><i class="fas fa-caret-down"></i></button>
+            <button class="more__btn">
+              <i class="fas fa-caret-down"></i>
+            </button>
           </div>
           <span class="view__info">1M views 1month ago</span>
         </article>

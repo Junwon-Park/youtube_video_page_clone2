@@ -1,0 +1,240 @@
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* Size */
+  --padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+/*
+처음 시작할 때 모든 태그의 padding고 margin 값을 0으로 줘서 아무 것도 없는 상태에서 시작할 수 있도록 세팅한다.
+그리고 padding이나 margin 값을 줄 때, 그 값 또한 포함되어서 box size가 결정되도록 모든 태그에 border-box를 지정한다.
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* body 태그 안에 있는 모든 태그의 font-family를 Roboto로 지정 */
+body {
+  font-family: Roboto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*! 위 처럼 여러 태그에서 공통적으로 사용될만한 것들을 미리 정의해 놓고 시작하는 것이 편리하다. */
+
+/* header 관련 태그 */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-size: var(--font-large);
+}
+header > .logo_title > .fa-youtube {
+  color: var(--red-color);
+}
+header > .icons > i {
+  padding: 0px 4px;
+}
+
+.info,
+.upNext {
+  padding: 3px var(--padding);
+}
+
+/* video 관련 태그 */
+/* section 태그는 여러 개라 class 명으로 지정 */
+.player {
+  text-align: center;
+  background-color: var(--black-color);
+}
+.player > video {
+  /* %를 사용하면 반응형 유닛으로 만들 수 있다. */
+  width: 100%;
+  height: 100%;
+  /* max-width를 사용하면 최대 width를 지정할 수 있다.(지정한 사이즈 까지만 늘어난다.) */
+  max-width: 1000px;
+}
+
+/* info 관련 태그 */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+.info > .hashTag__list {
+  display: flex;
+}
+.info > .hashTag__list > .hashTag > a {
+  margin-right: var(--padding);
+  color: var(--blue-color);
+  font-size: var(--font-small);
+}
+.info > .video__info {
+  display: flex;
+  flex-direction: column;
+}
+.info > .video__info > .titleAndMore {
+  display: flex;
+}
+.info > .video__info > .titleAndMore > .video__title {
+  /* 아래 속성은 webkit line clamp를 지정하는 속성들이다. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 2줄까지만 표시되고 2줄을 넘어가면 ...으로 표시 */
+  overflow: hidden;
+}
+.info > .video__info > .titleAndMore > .more__btn {
+  background-color: var(--white-color);
+  border: 0;
+}
+.info > .video__info > .titleAndMore > .more__btn > .fa-caret-down {
+  margin-bottom: 15px;
+}
+.info > .video__info > .view__info {
+  color: var(--grey-dark-color);
+  font-size: var(--font-small);
+}
+
+/* action button 관련 태그 */
+.action__btn {
+  display: flex;
+  justify-content: space-around;
+  margin: var(--padding) 0px;
+}
+.action__btn > li {
+  display: flex;
+  flex-direction: column;
+}
+.action__btn > li > button {
+  background-color: var(--white-color);
+  border: 0;
+  cursor: pointer;
+}
+.action__btn > li > button > i {
+  font-size: var(--font-large);
+  padding: var(--padding) var(--padding);
+}
+.action__btn > li > span {
+  font-size: var(--font-small);
+  text-align: center;
+}
+
+/* ch__info 관련 태그 */
+.ch__info {
+  display: flex;
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+  align-items: center;
+}
+/* img태그의 사이즈 조절(.avatar(span태그)에 지정하면 적용 안됨)*/
+.ch__info > .avatar > img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  /* 50%를 적용하면 동그라미가 된다. */
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.ch__info > .ch__titleAndSubs__btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: var(--padding);
+}
+.ch__info > .ch__titleAndSubs__btn > .title__subs {
+  display: flex;
+  flex-direction: column;
+}
+.ch__info > .ch__titleAndSubs__btn > .title__subs > .ch__subs {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+.ch__info > .ch__titleAndSubs__btn > .subs__btn {
+  background-color: var(--white-color);
+  border: 0;
+  /* text-transform을 uppercase로 하면 대문자가 된다. */
+  text-transform: uppercase;
+  color: var(--red-color);
+  cursor: pointer;
+}
+
+/* upNext 관련 태그 */
+.upNext {
+  display: flex;
+  flex-direction: column;
+}
+.upNext > .text__upNext {
+  color: var(--grey-dark-color);
+}
+.upNext > .video__list {
+  display: flex;
+  flex-direction: column;
+  /* calc()을 사용하면 값의 연산을 수행한 결과를 리턴한다. */
+  margin: var(calc(--padding/2)) 0px;
+}
+.upNext > .video__list > .video__item {
+  display: flex;
+  height: 100px;
+  margin: 8px 0px;
+}
+.upNext > .video__list > .video__item > .thumbnail > img {
+  width: 100%;
+  height: 100%;
+}
+.upNext > .video__list > .video__item > .thumbnail {
+  /* 늘어나거나 줄어들 때, 비율은 1이고 기본 유지 비율은 25%로 지정한다. */
+  flex: 1 1 23%;
+}
+.upNext > .video__list > .video__item > .video__titleAndCh__info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /* 늘어나거나 줄어들 때, 비율은 1이고 기본 유지 비율은 65%로 지정한다. */
+  flex: 1 1 70%;
+  margin: 0px var(--padding);
+}
+.upNext > .video__list > .video__item > .video__titleAndCh__info > .ch__name,
+.upNext > .video__list > .video__item > .video__titleAndCh__info > .ch__views {
+  color: var(--grey-dark-color);
+  font-size: var(--medium);
+}
+.upNext > .video__list > .video__item > .fa-ellipsis-v {
+  /* 늘어나거나 줄어들 때, 비율은 1이고 기본 유지 비율은 0%로 지정한다. */
+  flex: 1 1 0%;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+    margin: var(--padding);
+  }
+}

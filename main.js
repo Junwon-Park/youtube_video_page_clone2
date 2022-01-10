@@ -7,8 +7,8 @@ let actionBtn = document.querySelectorAll('.action__btn li i');
 
 console.log(moreIcon);
 console.log(videoTitle);
-console.log(actionBtn);
 console.log(subsBtn);
+console.log(actionBtn); //! NodeList(배열 형태)라는 것을 반환
 
 // 위에서 불러온 more 버튼을 클릭했을 때, classList.toggle을 사용하여 지정한 클래스가 있으면 없애고, 없으면 생성하는 토글링이 되도록 하였다.
 moreIcon.addEventListener('click', () => {
